@@ -1,7 +1,7 @@
 <?php
 
-use Inertia\Factory;
 use Inertia\Config\Services;
+use Inertia\Factory;
 
 if (! function_exists('inertia')) {
     /**
