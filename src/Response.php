@@ -2,7 +2,6 @@
 
 namespace Inertia;
 
-use CodeIgniter\Config\View;
 use CodeIgniter\HTTP\IncomingRequest;
 use CodeIgniter\HTTP\Response as HttpResponse;
 use Inertia\Config\Services;

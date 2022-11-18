@@ -1,11 +1,20 @@
 # Inertia server-side adapter for CodeIgniter 4
+
 Forked from https://github.com/amiranagram/inertia-codeigniter-4
+
+![Tests](https://github.com/amiranagram/inertia-codeigniter-4/workflows/Tests/badge.svg)
+[![Total Downloads](https://img.shields.io/packagist/dt/amirami/inertia-codeigniter-4.svg)](https://packagist.org/packages/amirami/inertia-codeigniter-4)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/amirami/inertia-codeigniter-4.svg)](https://packagist.org/packages/amirami/inertia-codeigniter-4)
 
 ## Installation
 
-You can install the package as **ThirdParty**:
+You can install the [original package](https://github.com/amiranagram/inertia-codeigniter-4) via composer:
 
-### Clone this repo
+```bash
+composer require amirami/inertia-codeigniter-4
+```
+
+Or install its as **ThirdParty**:
 
 ```bash
 cd app/ThirdParty
@@ -13,7 +22,7 @@ cd app/ThirdParty
 git clone https://github.com/trianayulianto/inertia-codeigniter-4.git
 ```
 
-### Set autoload in `app/Config/Autoload.php`
+Set autoload in `app/Config/Autoload.php`
 
 ```php
 public $psr4 = [
@@ -147,7 +156,6 @@ Please review [our security policy](../../security/policy) on how to report secu
 ## Credits
 
 - [Amir Rami](https://github.com/amirami)
-- [Triana Yulianto](https://github.com/trianayulianto)
 - [All Contributors](../../contributors)
 
 ## License

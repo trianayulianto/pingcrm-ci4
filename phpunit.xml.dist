@@ -1,37 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit backupGlobals="false"
-         backupStaticAttributes="false"
-         bootstrap="vendor/codeigniter4/framework/system/Test/bootstrap.php"
-         colors="true"
-         convertErrorsToExceptions="true"
-         convertNoticesToExceptions="true"
-         convertWarningsToExceptions="true"
-         processIsolation="false"
-         stopOnFailure="false"
-         verbose="true"
->
-    <testsuites>
-        <testsuite name="Amirami Test Suite">
-            <directory>tests</directory>
-        </testsuite>
-    </testsuites>
-    <filter>
-        <whitelist addUncoveredFilesFromWhitelist="true" processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">./src</directory>
-        </whitelist>
-    </filter>
-    <logging>
-        <log type="coverage-html" target="build/logs/html"/>
-        <log type="coverage-clover" target="build/logs/clover.xml"/>
-        <log type="coverage-php" target="build/logs/coverage.serialized"/>
-        <log type="coverage-text" target="php://stdout" showUncoveredFiles="false"/>
-        <log type="testdox-html" target="build/logs/testdox.html"/>
-        <log type="testdox-text" target="build/logs/testdox.txt"/>
-        <log type="junit" target="build/logs/logfile.xml"/>
-    </logging>
-    <php>
-        <const name="HOMEPATH" value="./"/>
-        <const name="CONFIGPATH" value="./vendor/codeigniter4/framework/app/Config/"/>
-        <const name="PUBLICPATH" value="./vendor/codeigniter4/framework/public/"/>
-    </php>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" backupGlobals="false" backupStaticAttributes="false" bootstrap="vendor/codeigniter4/framework/system/Test/bootstrap.php" colors="true" convertErrorsToExceptions="true" convertNoticesToExceptions="true" convertWarningsToExceptions="true" processIsolation="false" stopOnFailure="false" verbose="true" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
+  <coverage includeUncoveredFiles="true" processUncoveredFiles="true">
+    <include>
+      <directory suffix=".php">./src</directory>
+    </include>
+    <report>
+      <clover outputFile="build/logs/clover.xml"/>
+      <html outputDirectory="build/logs/html"/>
+      <php outputFile="build/logs/coverage.serialized"/>
+      <text outputFile="php://stdout" showUncoveredFiles="false"/>
+    </report>
+  </coverage>
+  <testsuites>
+    <testsuite name="Amirami Test Suite">
+      <directory>tests</directory>
+    </testsuite>
+  </testsuites>
+  <logging>
+    <testdoxHtml outputFile="build/logs/testdox.html"/>
+    <testdoxText outputFile="build/logs/testdox.txt"/>
+    <junit outputFile="build/logs/logfile.xml"/>
+  </logging>
+  <php>
+    <const name="HOMEPATH" value="./"/>
+    <const name="CONFIGPATH" value="./vendor/codeigniter4/framework/app/Config/"/>
+    <const name="PUBLICPATH" value="./vendor/codeigniter4/framework/public/"/>
+  </php>
 </phpunit>
