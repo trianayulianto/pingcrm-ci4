@@ -108,7 +108,7 @@ class Factory
      */
     public function app($page): string
     {
-        return '<div id="app" data-page="' . htmlentities(json_encode($page)) . '"></div>';
+        return Directive::inertia($page);
     }
 
     /**

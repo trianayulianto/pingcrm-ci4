@@ -14,4 +14,13 @@ class Services extends BaseService
 
         return new \Inertia\Factory;
     }
+
+    public static function httpGateway($getShared = true)
+    {
+        if ($getShared) {
+            return static::getSharedInstance('httpGateway');
+        }
+
+        return new \Inertia\Ssr\HttpGateway;
+    }
 }

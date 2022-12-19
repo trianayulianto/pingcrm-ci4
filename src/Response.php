@@ -33,7 +33,7 @@ class Response
         return $this;
     }
 
-    public function withViewData($key, $value = null)
+    public function withViewData($key, $value = null): Response
     {
         if (is_array($key)) {
             $this->viewData = array_merge($this->viewData, $key);
@@ -46,12 +46,12 @@ class Response
 
     public function __toString()
     {
-        $partialData = $this->request()->getHeader('X-Inertia-Partial-Data');
+        $partialData = $this->request()->header('X-Inertia-Partial-Data');
         $only = array_filter(
             explode(',', $partialData ? $partialData->getValue() : '')
         );
 
-        $partialComponent = $this->request()->getHeader('X-Inertia-Partial-Component');
+        $partialComponent = $this->request()->header('X-Inertia-Partial-Component');
         $props = ($only && ($partialComponent ? $partialComponent->getValue() : '') === $this->component)
             ? array_only($this->props, $only)
             : $this->props;
@@ -72,14 +72,15 @@ class Response
 
     private function make($page): string
     {
-        $inertia = $this->request()->getHeader('X-Inertia');
+        $inertia = $this->request()->header('X-Inertia');
 
         if ($inertia && $inertia->getValue()) {
+            $this->response()->setJSON($page);
             $this->response()->setHeader('Vary', 'X-Inertia');
             $this->response()->setHeader('X-Inertia', 'true');
             $this->response()->setHeader('Content-Type', 'application/json');
 
-            return json_encode($page);
+            return $this->response()->getJSON();
         }
 
         return $this->view($page);
