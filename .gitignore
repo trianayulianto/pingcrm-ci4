@@ -126,3 +126,7 @@ nb-configuration.xml
 /.phpunit.*.cache
 
 node_modules
+
+public/build
+public/hot
+writable/ssr
