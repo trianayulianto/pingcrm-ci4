@@ -44,7 +44,6 @@ class Autoload extends AutoloadConfig
         APP_NAMESPACE => APPPATH, // For custom app namespace
         'Config'      => APPPATH . 'Config',
         'Inertia'     => APPPATH . 'ThirdParty/inertia-codeigniter-4/src',
-        'TYlnt\\Vite'        => APPPATH . 'ThirdParty/vite-codeigniter-4/src',
     ];
 
     /**

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "525d2e13da8f25e9a9b8770821fa159b",
+    "content-hash": "917c2b83821e21af0062f7e00e07260c",
     "packages": [
         {
             "name": "codeigniter4/framework",
@@ -469,6 +469,55 @@
                 }
             ],
             "time": "2022-05-16T12:59:31+00:00"
+        },
+        {
+            "name": "trianayulianto/vite-codeigniter-4",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/trianayulianto/vite-codeigniter-4.git",
+                "reference": "e384eae1904834e3fcbc23f26f6aaddac9a2d357"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/trianayulianto/vite-codeigniter-4/zipball/e384eae1904834e3fcbc23f26f6aaddac9a2d357",
+                "reference": "e384eae1904834e3fcbc23f26f6aaddac9a2d357",
+                "shasum": ""
+            },
+            "require": {
+                "codeigniter4/framework": "^4.0.2",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.13.0",
+                "phpunit/phpunit": "^9.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "TYlnt\\Vite\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Triana Yulianto",
+                    "email": "triana.yulianto2018@gmail.com"
+                }
+            ],
+            "description": "Vite backend integration for CodeIgniter 4",
+            "keywords": [
+                "codeigniter",
+                "vite"
+            ],
+            "support": {
+                "issues": "https://github.com/trianayulianto/vite-codeigniter-4/issues",
+                "source": "https://github.com/trianayulianto/vite-codeigniter-4/tree/v0.1.0"
+            },
+            "time": "2022-12-28T01:47:52+00:00"
         }
     ],
     "packages-dev": [

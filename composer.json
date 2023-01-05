@@ -8,7 +8,8 @@
         "php": "^7.4 || ^8.0",
         "codeigniter4/framework": "^4.0",
         "tatter/relations": "^2.1",
-        "tatter/imposter": "^1.1"
+        "tatter/imposter": "^1.1",
+        "trianayulianto/vite-codeigniter-4": "^0.1.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9",
