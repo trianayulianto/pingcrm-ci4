@@ -168,7 +168,7 @@ class ContactsController extends BaseController
 
         $contact->delete();
 
-        return redirect()->back()->with('success', 'Contact deleted.');
+        return redirect()->to('/contacts')->with('success', 'Contact deleted.');
     }
 
     public function restore($id)

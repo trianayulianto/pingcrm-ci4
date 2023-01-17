@@ -15,4 +15,10 @@ class Contact extends Entity
     {
         return "{$this->first_name} {$this->last_name}";
     }
+
+    public function delete()
+    {
+        $contacModel = New \App\Models\ContactModel();
+        return $contacModel->delete($this->id);
+    }
 }
