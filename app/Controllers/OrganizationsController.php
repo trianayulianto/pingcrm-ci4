@@ -144,7 +144,7 @@ class OrganizationsController extends BaseController
 
         $organization->delete();
 
-        return redirect()->back()->with('success', 'Organization deleted.');
+        return redirect()->to('/contacts')->with('success', 'Organization deleted.');
     }
 
     public function restore($id)

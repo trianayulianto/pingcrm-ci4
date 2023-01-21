@@ -10,4 +10,10 @@ class Organization extends Entity
 
     protected $table = 'organizations';
     protected $primaryKey = 'id';
+
+    public function delete()
+    {
+        $organizationModel = model('OrganizationModel');
+        return $organizationModel->delete($this->id);
+    }
 }

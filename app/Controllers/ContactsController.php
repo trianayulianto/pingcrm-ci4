@@ -80,13 +80,13 @@ class ContactsController extends BaseController
             'first_name', 'last_name', 'organization_id', 'email', 'phone', 'address', 'city', 'region', 'country', 'postal_code',
         ]);
 
-        $this->userModel->insert(
+        $this->contactModel->insert(
             array_merge([
                 'account_id' => $authShared['user']['account']['id'] ?? null,
             ], $data)
         );
 
-        return redirect()->route('/contacts')->with('success', 'Contact created.');
+        return redirect()->to('/contacts')->with('success', 'Contact created.');
     }
 
     public function edit($id)
@@ -168,7 +168,7 @@ class ContactsController extends BaseController
 
         $contact->delete();
 
-        return redirect()->back()->with('success', 'Contact deleted.');
+        return redirect()->to('/contacts')->with('success', 'Contact deleted.');
     }
 
     public function restore($id)
