@@ -7,8 +7,9 @@
 
     <!-- ViteJs Helper -->
     <?= vite('resources/js/app.js') ?>
+    <?= \Inertia\Directive::inertiaHead($page) ?>
 </head>
 <body>
-	<?= inertia()->app($page) ?>
+	<?= \Inertia\Directive::inertia($page) ?>
 </body>
 </html>
