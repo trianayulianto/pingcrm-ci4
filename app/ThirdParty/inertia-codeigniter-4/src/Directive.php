@@ -4,6 +4,8 @@ namespace Inertia;
 
 class Directive
 {
+    protected static $__inertiaSsr;
+
     /**
      * Compiles the inertia directive.
      *
@@ -13,7 +15,7 @@ class Directive
     public static function inertia($page, ?string $id = ''): string
     {
         $id = trim(trim($id), "\'\"") ?: 'app';
-        $__inertiaSsr = \Config\Services::httpGateway()->dispatch($page);
+        $__inertiaSsr = static::__inertiaSsr($page);
 
         if ($__inertiaSsr instanceof \Inertia\Ssr\Response) {
             $template = $__inertiaSsr->body;
@@ -32,7 +34,7 @@ class Directive
      */
     public static function inertiaHead($page): string
     {
-        $__inertiaSsr = \Config\Services::httpGateway()->dispatch($page);
+        $__inertiaSsr = static::__inertiaSsr($page);
 
         if ($__inertiaSsr instanceof \Inertia\Ssr\Response) {
             $template = $__inertiaSsr->head;
@@ -41,5 +43,22 @@ class Directive
         }
 
         return implode(' ', array_map('trim', explode("\n", $template)));
+    }
+
+    /**
+     * Dispatch the Inertia page to the Server Side Rendering engine.
+     *
+     * @param  array  $page
+     * @return Response|null
+     */
+    protected static function __inertiaSsr($page)
+    {
+        if (static::$__inertiaSsr === null) {
+            $__inertiaSsr = \Config\Services::httpGateway()->dispatch($page);
+
+            static::$__inertiaSsr = $__inertiaSsr;
+        }
+
+        return static::$__inertiaSsr;
     }
 }

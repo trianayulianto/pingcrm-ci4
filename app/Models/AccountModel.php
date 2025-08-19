@@ -18,4 +18,11 @@ class AccountModel extends Model
 
     // Dates
     protected $useTimestamps = true;
+
+    public function findAll(?int $limit = 0, int $offset = 0)
+    {
+        $data = parent::findAll($limit, $offset);
+
+        return $this->addRelations($data);
+    }
 }
