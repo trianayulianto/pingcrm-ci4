@@ -2,7 +2,7 @@ import '../css/app.css'
 
 import { createApp, h } from 'vue'
 import { InertiaProgress } from '@inertiajs/progress'
-import { createInertiaApp } from '@inertiajs/inertia-vue3'
+import { createInertiaApp } from '@inertiajs/vue3'
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers'
 
 InertiaProgress.init()

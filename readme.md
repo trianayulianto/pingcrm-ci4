@@ -28,7 +28,14 @@ npm ci
 Build assets:
 
 ```sh
-npm run dev
+npm run build
+```
+
+Run the migrations & seeders:
+
+```sh
+php spark migrate
+php spark db:seed DatabaseSeeder
 ```
 
 Run the dev server (the output will give the address):
