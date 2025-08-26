@@ -73,7 +73,7 @@ class Cookie extends BaseConfig
      *
      * @var bool
      */
-    public $httponly = true;
+    public $httponly = false;
 
     /**
      * --------------------------------------------------------------------------
