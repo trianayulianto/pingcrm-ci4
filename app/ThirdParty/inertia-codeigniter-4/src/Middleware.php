@@ -6,6 +6,7 @@ use CodeIgniter\HTTP\Request;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Config\Services;
+use Inertia\Support\Header;
 
 class Middleware
 {
@@ -79,8 +80,6 @@ class Middleware
      */
     public function before(RequestInterface $request, $arguments = null)
     {
-        $request = Services::request();
-
         Inertia::version(function () use ($request) {
             return $this->version($request);
         });
@@ -101,15 +100,14 @@ class Middleware
      */
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
     {
-        $request = Services::request();
-        Services::response()->setHeader('Vary', 'X-Inertia');
+        $response->setHeader('Vary', Header::INERTIA);
 
-        if (! $request->header('X-Inertia')) {
+        if (! $request->header(Header::INERTIA)) {
             return;
         }
 
         if ($request->getMethod(true) === 'GET' &&
-            $request->header('X-Inertia-Version', '') !== Inertia::getVersion()
+            $request->header(Header::VERSION, '') !== Inertia::getVersion()
         ) {
             $response = $this->onVersionChange($request, $response);
         }
@@ -170,8 +168,8 @@ class Middleware
             return (object) [];
         }
 
-        if ($request->header('x-inertia-error-bag')) {
-            return (object) [$request->header('x-inertia-error-bag') => $errors];
+        if ($request->header(Header::ERROR_BAG)) {
+            return (object) [$request->header(Header::ERROR_BAG) => $errors];
         }
 
         return (object) $errors;

@@ -2,9 +2,9 @@
 
 namespace Inertia\Ssr;
 
-use Exception;
 use CodeIgniter\Config\Factories;
 use CodeIgniter\Config\Services;
+use Exception;
 
 class HttpGateway implements Gateway
 {
@@ -35,7 +35,7 @@ class HttpGateway implements Gateway
                 'headers' => [
                     'Content-Type' => 'application/json',
                     'Accept' => 'application/json',
-                ]
+                ],
             ]);
             $response = json_decode($response->getBody(), true);
         } catch (Exception $e) {

@@ -17,7 +17,7 @@ class Directive
         $id = trim(trim($id), "\'\"") ?: 'app';
         $__inertiaSsr = static::__inertiaSsr($page);
 
-        if ($__inertiaSsr instanceof \Inertia\Ssr\Response) {
+        if ($__inertiaSsr instanceof Ssr\Response) {
             $template = $__inertiaSsr->body;
         } else {
             $template = '<div id="'.$id.'" data-page="'.htmlentities(json_encode($page)).'"></div>';
@@ -36,7 +36,7 @@ class Directive
     {
         $__inertiaSsr = static::__inertiaSsr($page);
 
-        if ($__inertiaSsr instanceof \Inertia\Ssr\Response) {
+        if ($__inertiaSsr instanceof Ssr\Response) {
             $template = $__inertiaSsr->head;
         } else {
             $template = '';

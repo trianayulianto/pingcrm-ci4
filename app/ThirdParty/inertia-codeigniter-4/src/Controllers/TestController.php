@@ -3,11 +3,12 @@
 namespace Inertia\Controllers;
 
 use CodeIgniter\Controller;
+use Inertia\Inertia;
 
 class TestController extends Controller
 {
     public function index()
     {
-        return 'ok';
+        return Inertia::render('Test', ['foo' => 'bar']);
     }
 }
